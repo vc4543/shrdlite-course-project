@@ -14,7 +14,7 @@ class SVGWorld implements World {
 
         var dropdown = this.containers.inputexamples;
         dropdown.empty();
-        dropdown.append($('<option value="">').text("(Select an example utterance)"));
+        dropdown.append($('<option value="">').text("(Seleciona una oracion de ejemplo)"));
         $.each(this.currentState.examples, function(i, value) {
             dropdown.append($('<option>').text(value));
         });
@@ -107,7 +107,7 @@ class SVGWorld implements World {
 
     public printWorld(callback?) {
         this.containers.world.empty();
-        this.printSystemOutput("Please wait while I populate the world.")
+        this.printSystemOutput("Espera mientras leo los mundos.")
 
         var viewBox = [0, 0, this.canvasWidth + 2 * this.wallSeparation, 
                        this.canvasHeight + this.floorThickness];

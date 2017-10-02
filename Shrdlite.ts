@@ -8,7 +8,7 @@ module Shrdlite {
 
     export function interactive(world : World) : void {
         function endlessLoop(utterance : string = "") : void {
-            var inputPrompt = "What can I do for you today? ";
+            var inputPrompt = "En que te puedo ayudar? ";
             var nextInput = () => world.readUserInput(inputPrompt, endlessLoop);
             if (utterance.trim()) {
                 var plan : string[] = splitStringIntoPlan(utterance);
@@ -33,18 +33,18 @@ module Shrdlite {
     // - then it creates plan(s) for the interpretation(s)
 
     export function parseUtteranceIntoPlan(world : World, utterance : string) : string[] {
-        world.printDebugInfo('Parsing utterance: "' + utterance + '"');
+        world.printDebugInfo('Analizando la oracion: "' + utterance + '"');
         try {
             var parses : Parser.Result[] = Parser.parse(utterance);
         } catch(err) {
             if (err instanceof Parser.Error) {
-                world.printError("Parsing error", err.message);
+                world.printError("Error en el parser", err.message);
                 return;
             } else {
                 throw err;
             }
         }
-        world.printDebugInfo("Found " + parses.length + " parses");
+        world.printDebugInfo("Encontre " + parses.length + " interpretaciones");
         parses.forEach((res, n) => {
             world.printDebugInfo("  (" + n + ") " + Parser.parseToString(res));
         });
@@ -53,13 +53,13 @@ module Shrdlite {
             var interpretations : Interpreter.Result[] = Interpreter.interpret(parses, world.currentState);
         } catch(err) {
             if (err instanceof Interpreter.Error) {
-                world.printError("Interpretation error", err.message);
+                world.printError("Error de interpretacion", err.message);
                 return;
             } else {
                 throw err;
             }
         }
-        world.printDebugInfo("Found " + interpretations.length + " interpretations");
+        world.printDebugInfo("Encontre " + interpretations.length + " interpretaciones");
         interpretations.forEach((res, n) => {
             world.printDebugInfo("  (" + n + ") " + Interpreter.interpretationToString(res));
         });
@@ -68,19 +68,19 @@ module Shrdlite {
             var plans : Planner.Result[] = Planner.plan(interpretations, world.currentState);
         } catch(err) {
             if (err instanceof Planner.Error) {
-                world.printError("Planning error", err.message);
+                world.printError("Error logistico", err.message);
                 return;
             } else {
                 throw err;
             }
         }
-        world.printDebugInfo("Found " + plans.length + " plans");
+        world.printDebugInfo("Encontre " + plans.length + " planes");
         plans.forEach((res, n) => {
             world.printDebugInfo("  (" + n + ") " + Planner.planToString(res));
         });
 
         var plan : string[] = plans[0].plan;
-        world.printDebugInfo("Final plan: " + plan.join(", "));
+        world.printDebugInfo("Plan Final: " + plan.join(", "));
         return plan;
     }
 

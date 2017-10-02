@@ -43,8 +43,8 @@ command --> move entity location  {% R({cmd:"move", ent:1, loc:2}) %}
 
 location --> relation entity  {% R({rel:0, ent:1}) %}
 
-entity --> quantifierSG objectSG  {% R({quant:0, obj:1}) %}
-entity --> quantifierPL objectPL  {% R({quant:0, obj:1}) %}
+entity --> objectSG quantifierSG {% R({quant:1, obj:0}) %}
+entity --> objectPL quantifierPL {% R({quant:1, obj:0}) %}
 
 objectSG --> objectSG that_is:?  location  {% R({obj:0, loc:2}) %}
 objectPL --> objectPL that_are:? location  {% R({obj:0, loc:2}) %}
@@ -55,53 +55,53 @@ objectPL --> size:? color:? formPL  {% R({size:0, color:1, form:2}) %}
 
 ## Lexical rules
 
-quantifierSG --> ("any" | "an" | "a")  {% R("any") %}
-quantifierSG --> ("the")               {% R("the") %}
-quantifierSG --> ("every")             {% R("all") %}
-quantifierPL --> ("all")               {% R("all") %}
+quantifierSG --> ("cualquier" | "cualquiera" |"una" | "un")  {% R("any") %}
+quantifierSG --> ("el" | "la")         {% R("the") %}
+quantifierSG --> ("todos" | "todas")   {% R("all") %}
+quantifierPL --> ("todos" "los" | "todas" "las")             {% R("all") %}
 
-relation --> ("left"  "of" | "to" "the" "left"  "of")  {% R("leftof") %}
-relation --> ("right" "of" | "to" "the" "right" "of")  {% R("rightof") %}
-relation --> ("inside" | "in" | "into")  {% R("inside") %}
-relation --> ("on" | "on" "top" "of")    {% R("ontop") %}
-relation --> ("under" | "below")         {% R("under") %}
-relation --> ("beside")                  {% R("beside") %}
-relation --> ("above")                   {% R("above") %}
+relation --> ("izquierda"  "de" | "a" "la" "izquierda"  "de")  {% R("leftof") %}
+relation --> ("derecha" "de" | "a" "la" "derecha" "de")  {% R("rightof") %}
+relation --> ("adentro" | "en" | "into" | "dentro")      {% R("inside") %}
+relation --> ("encima" | "arriba" "de" | "en")           {% R("ontop") %}
+relation --> ("abajo" | "abajo" "de")                    {% R("under") %}
+relation --> ("a" "lado")                                {% R("beside") %}
+relation --> ("above")                                   {% R("above") %}
 
-size --> ("small" | "tiny")  {% R("small") %}
-size --> ("large" | "big")   {% R("large") %}
+size --> ("chica" | "chico")  {% R("small") %}
+size --> "grande"   {% R("large") %}
 
-color --> "black"   {% R("black") %}
-color --> "white"   {% R("white") %}
-color --> "blue"    {% R("blue") %}
-color --> "green"   {% R("green") %}
-color --> "yellow"  {% R("yellow") %}
-color --> "red"     {% R("red") %}
+color --> ("negro" | "negra")       {% R("black") %}
+color --> ("blanco" | "blanca")     {% R("white") %}
+color --> "azul"                    {% R("blue") %}
+color --> "verde"                   {% R("green") %}
+color --> ("amarillo" | "amarilla") {% R("yellow") %}
+color --> ("rojo" | "roja")         {% R("red") %}
 
 formSG --> form      {% R(0) %}
 formPL --> form "s"  {% R(0) %}
 
-formSG --> "box"    {% R("box") %}
-formPL --> "boxes"  {% R("box") %}
+formSG --> "caja"    {% R("box") %}
+formPL --> "cajas"  {% R("box") %}
 
-form --> ("object" | "thing" | "form")  {% R("anyform") %}
-form --> "brick"    {% R("brick") %}
-form --> "plank"    {% R("plank") %}
-form --> "ball"     {% R("ball") %}
-form --> "pyramid"  {% R("pyramid") %}
-form --> "table"    {% R("table") %}
-form --> "floor"    {% R("floor") %}
+form --> ("objeto" | "cosa" | "forma")  {% R("anyform") %}
+form --> ("cuadrado" | "rectangulo")    {% R("brick") %}
+form --> "losa"    {% R("plank") %}
+form --> ("pelota" | "bola" | "circulo"){% R("ball") %}
+form --> ("piramide" | "triangulo")     {% R("pyramid") %}
+form --> "mesa"     {% R("table") %}
+form --> "piso"     {% R("floor") %}
 
 
 ## Lexicon (without semantic content)
 
-take --> "take" | "grasp" | "pick" "up"
-move --> "move" | "put" | "drop"
-it --> "it"
+take --> "toma" | "agarra"
+move --> "mueve" | "pon" | "suelta"
+it --> "lo"
 
-that_is  --> "that" "is"
-that_are --> "that" "are"
+that_is  --> "eso" "es"
+that_are --> "esos" "son"
 
-will_you --> ("will" | "can" | "could") "you"
+will_you --> ("quieres" | "puedes" | "could")
 
-please --> "please"
+please --> ("por" "favor" | "porfavor")

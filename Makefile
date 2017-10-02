@@ -1,4 +1,5 @@
 TSC = ./node_modules/.bin/tsc
+NC  = ./node_modules/.bin/nearleyc
 
 
 TARGETS = html ajax ansi offline
@@ -29,4 +30,5 @@ generated_code/%.js: %.ts $(TSFILES)
 	$(TSC) --out $@ $<
 
 grammar.js: grammar.ne
-	nearleyc $< > $@
+	$(NC) $< > $@
+

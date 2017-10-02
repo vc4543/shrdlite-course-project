@@ -97,7 +97,7 @@ module Searcher {
         // PRETTY MUCH GAME OVER
         if(space.isGoalCurrentState())
            return true;
-        space.printDebugInfo('No more frontier to traverse');
+        space.printDebugInfo('No mas lugar en que buscar');
         return false;
     }
 

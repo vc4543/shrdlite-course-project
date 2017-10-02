@@ -8,7 +8,7 @@ const svg = require('./SVGWorld.js')
 const shrd = require('./Shrdlite.js')
 
 
-var defaultWorld = 'small';
+var defaultWorld = 'chico';
 var defaultSpeech = false;
 
 function set_current_world() {

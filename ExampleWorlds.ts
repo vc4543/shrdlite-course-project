@@ -3,7 +3,7 @@
 var ExampleWorlds : {[s:string]: WorldState} = {};
 
 
-ExampleWorlds["complex"] = {
+ExampleWorlds["complejo"] = {
     "stacks": [["e"],["a","l"],["i","h","j"],["c","k","g","b"],["d","m","f"]],
     "holding": null,
     "arm": 0,
@@ -23,24 +23,23 @@ ExampleWorlds["complex"] = {
         "m": { "form":"box",     "size":"small",  "color":"blue"  }
     },
     "examples": [
-        "put a box in a box",
-        "put all balls on the floor",
-        "take the yellow box",
-        "put any object under all tables",
-        "put any object under all tables on the floor",
-        "put a ball in a small box in a large box",
-        "put all balls in a large box",
-        "put all balls left of a ball",
-        "put all balls beside a ball",
-        "put all balls beside every ball",
-        "put a box beside all objects",
-        "put all red objects above a yellow object on the floor",
-        "put all yellow objects under a red object under an object"
+        "pon una caja en una caja",
+        "pon todas las bolas en el piso",
+        "toma la caja amarilla",
+        "pon cualquier cosa abajo de las mesas",
+        "pon un objecto abajo de las mesas en el suelo",
+        "pon una bola en una caja chica en una caja grande",
+        "pon todas las bolas en una caja grande",
+        "pon todas las bolas a la izquierda de una bola",
+        "pon todas las bolas a lado de una bola",
+        "pon una caja a lado de todos los objetos",
+        "pon todos los objetos rojos arriba de un objeto amarillo en el suelo",
+        "pon todos los objetos amarillos abajo de un objeto rojo abajo de un objeto"
     ]
 };
 
 
-ExampleWorlds["medium"] = {
+ExampleWorlds["mediano"] = {
     "stacks": [["e"],["a","l"],[],[],["i","h","j"],[],[],["k","g","c","b"],[],["d","m","f"]],
     "holding": null,
     "arm": 0,
@@ -60,16 +59,16 @@ ExampleWorlds["medium"] = {
         "m": { "form":"box",     "size":"small",  "color":"blue"  }
     },
     "examples": [
-        "put the brick that is to the left of a pyramid in a box",
-        "put the white ball in a box on the floor",
-        "move the large ball inside a yellow box on the floor",
-        "move the large ball inside a red box on the floor",
-        "take a red object",
-        "take the white ball",
-        "put all boxes on the floor",
-        "put the large plank under the green brick",
-        "move all bricks on a table",
-        "move all balls inside a large box"
+        "pon el rectangulo a la izquierda de una pyramide en una caja",
+        "pon el circulo blanco en una caja en el suelo",
+        "mueve la bola grande dentro de la caja amarilla en el suelo",
+        "mueve la bola grande inside a red box on the floor",
+        "toma un objeto rojo",
+        "toma la bola blanca",
+        "pon los cajas en el suelo",
+        "pon la losa grande abajo de un rectangulo verde",
+        "mueve todos los rectangulos en la mesa",
+        "mueve todos los circulos adentro de una caja grande"
     ]
 };
 
@@ -84,12 +83,12 @@ ExampleWorlds["debug"] = {
         "m": { "form":"box",     "size":"small",  "color":"blue"  }
     },
     "examples": [
-        "put the black ball in a box on the floor",
+        "pon la bola negra en una caja en el suelo",
     ]
 };
 
 
-ExampleWorlds["small"] = {
+ExampleWorlds["chico"] = {
     "stacks": [["e"],["g","l"],[],["k","m","f"],[]],
     "holding": "a",
     "arm": 0,
@@ -109,17 +108,17 @@ ExampleWorlds["small"] = {
         "m": { "form":"box",     "size":"small",  "color":"blue"  }
     },
     "examples": [
-        "put the white ball in a box on the floor",
-        "put the black ball in a box on the floor",
-        "take a blue object",
-        "take the white ball",
-        "put all boxes on the floor",
-        "move all balls inside a large box"
+        "pon la bola blanca en la caja en el suelo",
+        "pon el circulo negro en una caja en el suelo",
+        "toma un objeto azul",
+        "toma la bola blanca",
+        "pon las cajas en el suelo",
+        "mueve todas las bolas dentro de una caja grande"
     ]
 };
 
 
-ExampleWorlds["impossible"] = {
+ExampleWorlds["imposible"] = {
     "stacks": [["lbrick1","lball1","sbrick1"], [],
                ["lpyr1","lbox1","lplank2","sball2"], [],
                ["sbrick2","sbox1","spyr1","ltable1","sball1"]],
@@ -144,7 +143,7 @@ ExampleWorlds["impossible"] = {
         "sbox2":   { "form":"box",     "size":"small",  "color":"blue"  }
     },
     "examples": [
-        "this is just an impossible world"
+        "este mundo es imposible"
     ]
 };
 
