@@ -27,13 +27,13 @@ ExampleWorlds["complejo"] = {
         "pon todas las bolas en el piso",
         "toma la caja amarilla",
         "pon cualquier cosa abajo de las mesas",
-        "pon un objecto abajo de las mesas en el suelo",
+        "pon un objecto abajo de las mesas sobre el suelo",
         "pon una bola en una caja chica en una caja grande",
         "pon todas las bolas en una caja grande",
         "pon todas las bolas a la izquierda de una bola",
         "pon todas las bolas a lado de una bola",
         "pon una caja a lado de todos los objetos",
-        "pon todos los objetos rojos arriba de un objeto amarillo en el suelo",
+        "pon todos los objetos rojos arriba de un objeto amarillo sobre el suelo",
         "pon todos los objetos amarillos abajo de un objeto rojo abajo de un objeto"
     ]
 };
@@ -60,12 +60,12 @@ ExampleWorlds["mediano"] = {
     },
     "examples": [
         "pon el rectangulo a la izquierda de una pyramide en una caja",
-        "pon el circulo blanco en una caja en el suelo",
-        "mueve la bola grande dentro de la caja amarilla en el suelo",
+        "pon el circulo blanco en una caja sobre el suelo",
+        "mueve la bola grande dentro de la caja amarilla sobre el suelo",
         "mueve la bola grande inside a red box on the floor",
         "toma un objeto rojo",
         "toma la bola blanca",
-        "pon los cajas en el suelo",
+        "pon los cajas sobre el suelo",
         "pon la losa grande abajo de un rectangulo verde",
         "mueve todos los rectangulos en la mesa",
         "mueve todos los circulos adentro de una caja grande"
@@ -83,7 +83,7 @@ ExampleWorlds["debug"] = {
         "m": { "form":"box",     "size":"small",  "color":"blue"  }
     },
     "examples": [
-        "pon la bola negra en una caja en el suelo",
+        "pon la bola negra en una caja sobre el suelo",
     ]
 };
 
@@ -108,11 +108,11 @@ ExampleWorlds["chico"] = {
         "m": { "form":"box",     "size":"small",  "color":"blue"  }
     },
     "examples": [
-        "pon la bola blanca en la caja en el suelo",
-        "pon el circulo negro en una caja en el suelo",
+        "pon la bola blanca en la caja sobre el suelo",
+        "pon el circulo negro en una caja sobre el suelo",
         "toma un objeto azul",
         "toma la bola blanca",
-        "pon las cajas en el suelo",
+        "pon las cajas sobre el suelo",
         "mueve todas las bolas dentro de una caja grande"
     ]
 };

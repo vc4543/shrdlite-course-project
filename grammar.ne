@@ -43,30 +43,30 @@ command --> move entity location  {% R({cmd:"move", ent:1, loc:2}) %}
 
 location --> relation entity  {% R({rel:0, ent:1}) %}
 
-entity --> objectSG quantifierSG {% R({quant:1, obj:0}) %}
-entity --> objectPL quantifierPL {% R({quant:1, obj:0}) %}
+entity --> quantifierSG objectSG {% R({quant:0, obj:1}) %}
+entity --> quantifierPL objectPL {% R({quant:0, obj:1}) %}
 
 objectSG --> objectSG that_is:?  location  {% R({obj:0, loc:2}) %}
 objectPL --> objectPL that_are:? location  {% R({obj:0, loc:2}) %}
 
-objectSG --> size:? color:? formSG  {% R({size:0, color:1, form:2}) %}
-objectPL --> size:? color:? formPL  {% R({size:0, color:1, form:2}) %}
+objectSG --> formSG size:? color:?  {% R({size:1, color:2, form:0}) %}
+objectPL --> formPL size:? color:?  {% R({size:1, color:2, form:0}) %}
 
 
 ## Lexical rules
 
 quantifierSG --> ("cualquier" | "cualquiera" |"una" | "un")  {% R("any") %}
-quantifierSG --> ("el" | "la")         {% R("the") %}
-quantifierSG --> ("todos" | "todas")   {% R("all") %}
-quantifierPL --> ("todos" "los" | "todas" "las")             {% R("all") %}
+quantifierSG --> ("el" | "la")                               {% R("the") %}
+quantifierSG --> ("todos" | "todas")                         {% R("all") %}
+quantifierPL --> ("todos" "los" | "todas" "las" | "las" | "los")  {% R("all") %}
 
 relation --> ("izquierda"  "de" | "a" "la" "izquierda"  "de")  {% R("leftof") %}
-relation --> ("derecha" "de" | "a" "la" "derecha" "de")  {% R("rightof") %}
-relation --> ("adentro" | "en" | "into" | "dentro")      {% R("inside") %}
-relation --> ("encima" | "arriba" "de" | "en")           {% R("ontop") %}
-relation --> ("abajo" | "abajo" "de")                    {% R("under") %}
-relation --> ("a" "lado")                                {% R("beside") %}
-relation --> ("above")                                   {% R("above") %}
+relation --> ("derecha" "de" | "a" "la" "derecha" "de")        {% R("rightof") %}
+relation --> ("adentro" "de" | "en" | "into" | "dentro" "de")  {% R("inside") %}
+relation --> ("encima" | "arriba" "de" | "sobre")              {% R("ontop") %}
+relation --> ("abajo" | "abajo" "de")                          {% R("under") %}
+relation --> ("a" "lado")                                      {% R("beside") %}
+relation --> ("above")                                         {% R("above") %}
 
 size --> ("chica" | "chico")  {% R("small") %}
 size --> "grande"   {% R("large") %}
@@ -81,16 +81,14 @@ color --> ("rojo" | "roja")         {% R("red") %}
 formSG --> form      {% R(0) %}
 formPL --> form "s"  {% R(0) %}
 
-formSG --> "caja"    {% R("box") %}
-formPL --> "cajas"  {% R("box") %}
-
 form --> ("objeto" | "cosa" | "forma")  {% R("anyform") %}
 form --> ("cuadrado" | "rectangulo")    {% R("brick") %}
-form --> "losa"    {% R("plank") %}
+form --> "losa"                         {% R("plank") %}
 form --> ("pelota" | "bola" | "circulo"){% R("ball") %}
 form --> ("piramide" | "triangulo")     {% R("pyramid") %}
-form --> "mesa"     {% R("table") %}
-form --> "piso"     {% R("floor") %}
+form --> "mesa"                         {% R("table") %}
+form --> "caja"                         {% R("box") %}
+form --> ("piso" | "suelo")             {% R("floor") %}
 
 
 ## Lexicon (without semantic content)
@@ -99,8 +97,8 @@ take --> "toma" | "agarra"
 move --> "mueve" | "pon" | "suelta"
 it --> "lo"
 
-that_is  --> "eso" "es"
-that_are --> "esos" "son"
+that_is  --> "que" "esta"
+that_are --> "que" "estan"
 
 will_you --> ("quieres" | "puedes" | "could")
 

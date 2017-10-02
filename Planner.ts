@@ -59,21 +59,21 @@ module Planner {
             var statearm = state.arm;
             var res : Interpreter.Literal[] = planner.getResult();
             if(((res.length == 1) && (res[0].rel == 'nop')) || (res.length == 0))
-                plan.push("Already solved");
+                plan.push("Ya resuelto");
             else {
                 if((state.holding != null) && (state.holding != ''))
-                    plan.push("Dropping the " + state.objects[state.holding].form,
+                    plan.push("Soltando " + state.objects[state.holding].form,
                               "d");
                 res.forEach((instr) => {
                     var pickstack = +instr.args[1];
                     var obj = instr.args[0];
                     statearm = armMove(plan,pickstack,statearm);
-                    plan.push("Picking up the " + state.objects[obj].form,
+                    plan.push("Tomando " + state.objects[obj].form,
                               "p");
                     if(instr.rel != 'take') {
                         pickstack = +instr.args[2];
                         statearm = armMove(plan,pickstack,statearm);
-                        plan.push("Dropping the " + state.objects[obj].form,
+                        plan.push("Soltando " + state.objects[obj].form,
                                   "d");
                     }
                 });
