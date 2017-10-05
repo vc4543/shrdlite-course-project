@@ -50,6 +50,26 @@ module Planner {
     //////////////////////////////////////////////////////////////////////
     // private functions
 
+    function traduce(obj : string) : string {
+      if(obj == 'box')
+         return 'caja';
+      if(obj == 'ball')
+         return 'bola';
+      if(obj == 'plank')
+         return 'ladrillo';
+      if(obj == 'brick')
+         return 'rectangulo';
+      if(obj == 'table')
+         return 'mesa';
+      if(obj == 'table')
+         return 'mesa';
+      if(obj == 'anyform')
+         return 'objeto';
+      if(obj == 'pyramid')
+         return 'piramide';
+      return obj;
+    }
+
     // if finds a Plan, just execute it
     function planInterpretation(interpretations : Interpreter.Result[], state : WorldState) : Result {
         var plan : string[] = [];
@@ -62,18 +82,18 @@ module Planner {
                 plan.push("Ya resuelto");
             else {
                 if((state.holding != null) && (state.holding != ''))
-                    plan.push("Soltando " + state.objects[state.holding].form,
+                    plan.push("Soltando " + traduce(state.objects[state.holding].form),
                               "d");
                 res.forEach((instr) => {
                     var pickstack = +instr.args[1];
                     var obj = instr.args[0];
                     statearm = armMove(plan,pickstack,statearm);
-                    plan.push("Tomando " + state.objects[obj].form,
+                    plan.push("Tomando " + traduce(state.objects[obj].form),
                               "p");
                     if(instr.rel != 'take') {
                         pickstack = +instr.args[2];
                         statearm = armMove(plan,pickstack,statearm);
-                        plan.push("Soltando " + state.objects[obj].form,
+                        plan.push("Soltando " + traduce(state.objects[obj].form),
                                   "d");
                     }
                 });

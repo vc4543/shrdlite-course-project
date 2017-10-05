@@ -83,11 +83,11 @@ formPL --> form "s"  {% R(0) %}
 
 form --> ("objeto" | "cosa" | "forma")  {% R("anyform") %}
 form --> ("cuadrado" | "rectangulo")    {% R("brick") %}
-form --> "losa"                         {% R("plank") %}
+form --> ("losa" | "ladrillo" | "lingote") {% R("plank") %}
 form --> ("pelota" | "bola" | "circulo"){% R("ball") %}
 form --> ("piramide" | "triangulo")     {% R("pyramid") %}
 form --> "mesa"                         {% R("table") %}
-form --> "caja"                         {% R("box") %}
+form --> ("caja" | "recipiente")        {% R("box") %}
 form --> ("piso" | "suelo")             {% R("floor") %}
 
 
